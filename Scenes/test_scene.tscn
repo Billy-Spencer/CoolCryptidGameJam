@@ -22,3 +22,5 @@ tile_data = PoolIntArray( 0, 5, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 10, 0, 0, 11, 0, 0
 position = Vector2( 226, 144 )
 texture = ExtResource( 3 )
 script = ExtResource( 2 )
+
+[node name="player_movement_tween" type="Tween" parent="player"]

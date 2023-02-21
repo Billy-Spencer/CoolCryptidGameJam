@@ -6,6 +6,8 @@ var left_pos
 var right_pos
 var mid_pos
 var lane = 2
+onready var tween = $player_movement_tween
+var movement_smoothing = 0.25
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,11 +22,20 @@ func _input(event):
 	if event.is_action_pressed("strafe_right"):
 		match lane:
 			1:
-				position.x = mid_pos
+				tween.interpolate_property(self, "position:x",
+				position.x, mid_pos, movement_smoothing,
+				Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+				
+				tween.start()
+				
 				lane += 1
 				print(lane)
 			2:
-				position.x = right_pos
+				tween.interpolate_property(self, "position:x",
+				position.x, right_pos, movement_smoothing,
+				Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+				
+				tween.start()
 				lane +=1
 				print(lane)
 			3:
@@ -37,10 +48,18 @@ func _input(event):
 				print("cannot move any further left")
 				print(lane)
 			2:
-				position.x = left_pos
+				tween.interpolate_property(self, "position:x",
+				position.x, left_pos, movement_smoothing,
+				Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+				
+				tween.start()
 				lane -=1
 				print(lane)
 			3:
-				position.x = mid_pos
+				tween.interpolate_property(self, "position:x",
+				position.x, mid_pos, movement_smoothing,
+				Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+				
+				tween.start()
 				lane -=1
 				print(lane)
