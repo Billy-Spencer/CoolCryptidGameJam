@@ -17,6 +17,9 @@ func _ready():
 	left_pos = mid_pos - 64
 	right_pos = mid_pos + 64
 
+func _process(delta):
+	position.y += 300*delta
+
 
 func _input(event):
 	if event.is_action_pressed("strafe_right"):
