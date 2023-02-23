@@ -6,6 +6,14 @@ var right_pos
 var mid_pos
 var lane_width = 64
 
+var debug_text = false
+
+var stumble_time = 0.7
+
+# obstacle generation gap
+var max_time = 1.8
+var min_time = 0.5
+
 # left/right movement smoothing for the player
 var movement_smoothing = 0.25
 var player_speed = 300

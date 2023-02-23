@@ -18,4 +18,5 @@ func _process(_delta):
 	if active && player.position.y < position.y + get_viewport().size.y:
 		active = false
 		next_seg.activate(position.y)
-		print("NEXT")
+		if settings.debug_text:
+			print("NEXT")
